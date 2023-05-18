@@ -1,0 +1,378 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Epilogue', sans-serif;
+  box-sizing: border-box;
+}
+:root {
+  --Rotate: rotate(44deg);
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-size: 18px;
+}
+.container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: hsl(0, 0%, 98%);
+}
+.mobile-nav {
+  display: none;
+}
+nav {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 40px;
+  padding-right: 50px;
+  font-size: 15px;
+}
+.nav-menu {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  min-width: 30%;
+}
+nav ul {
+  list-style: none;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px 50px;
+}
+nav ul li {
+  width: max-content;
+  padding: 0 20px;
+  position: relative;
+}
+nav ul li a {
+  text-decoration: none;
+  color: hsl(0, 0%, 41%);
+}
+nav ul li a:hover {
+  font-weight: 1000;
+  color: hsl(0, 0%, 8%);
+}
+nav ul li:nth-child(1)::after,
+nav ul li:nth-child(2)::after {
+  position: absolute;
+  content: "";
+  border: 2px solid hsl(0, 0%, 41%);
+  width: 5px;
+  height: 5px;
+  border-width: 0 2px 2px 0;
+  top: 2px;
+  right: 7px;
+  transition: 0.5s ease;
+  transform: var(--Rotate);
+}
+nav ul li:nth-child(1):hover:after,
+nav ul li:nth-child(2):hover:after {
+  border: 2px solid hsl(0, 0%, 8%);
+  border-width: 0 2px 2px 0;
+}
+.logo {
+  margin-top: 10px;
+}
+.nav-btn {
+  width: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+.nav-btn button:nth-child(1) {
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+}
+.nav-btn button:nth-child(1):hover {
+  font-weight: 1000;
+  color: hsl(0, 0%, 8%);
+}
+.nav-btn button:nth-child(2) {
+  border: 2px solid hsl(0, 0%, 41%);
+  background: transparent;
+  outline: none;
+  height: 35px;
+  width: 80px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.nav-btn button:nth-child(2):hover {
+  background: hsl(0, 0%, 8%);
+  color: hsl(0, 0%, 98%);
+  border: 2px solid hsl(0, 0%, 8%);
+}
+.content {
+  height: 600px;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  flex-direction: row;
+}
+.content .text {
+  width: 50%;
+  height: 75%;
+  margin: 100px 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: hsl(0, 0%, 41%);
+}
+.content .text h1 {
+  font-size: 3.5em;
+  padding-right: 150px;
+  color: hsl(0, 0%, 8%);
+}
+.content .text p {
+  margin: 40px 0;
+  padding-right: 120px;
+}
+.content .text button {
+  width: 130px;
+  height: 45px;
+  border: 2px solid hsl(0, 0%, 8%);
+  outline: none;
+  background: hsl(0, 0%, 8%);
+  color: hsl(0, 0%, 98%);
+  cursor: pointer;
+  font-weight: 1000;
+  border-radius: 12px;
+}
+.content .text button:hover {
+  background: hsl(0, 0%, 98%);
+  color: hsl(0, 0%, 8%);
+}
+.content .image {
+  width: 50%;
+  margin: 30px;
+  background-image: url(images/image-hero-desktop.png);
+  background-size: 75%;
+  background-repeat: no-repeat;
+}
+.attribution {
+  text-align: center;
+  margin-top: -10px;
+}
+.attribution a {
+  text-decoration: none;
+  font-weight: 1000;
+  color: black;
+}
+.dropDownMenu {
+  position: absolute;
+  left: 135px;
+  top: 60px;
+  border: solid 1px hsl(0, 0%, 98%);
+  height: max-content;
+  padding: 15px 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 30px 0 hsl(0, 0%, 0%, 0.1);
+  color: hsl(0, 0%, 41%);
+  font-size: 15px;
+  opacity: 0;
+  visibility: hidden;
+  background: hsl(0, 0%, 98%);
+}
+.dropDownMenu div {
+  padding: 5px 3px;
+  padding-right: 10px;
+}
+.dropDownMenu span {
+  margin-left: 10px;
+}
+.dropDownMenu span a {
+  text-decoration: none;
+  color: hsl(0, 0%, 41%);
+}
+.dropDownMenu span a:hover {
+  font-weight: 1000;
+}
+.one {
+  width: 140px;
+}
+.two {
+  left: 310px;
+  width: 100px;
+}
+.one div {
+  padding: 5px 0px;
+  padding-left: 20px;
+}
+.active {
+  opacity: 1;
+  visibility: visible;
+}
+@media only screen and (max-width: 376px) {
+  nav {
+    display: none;
+  }
+  .mobile-nav {
+    display: block;
+  }
+  .nav-bar {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 15px;
+  }
+  .mobile-menu-content {
+    display: none;
+    position: fixed;
+    background: hsl(0, 0%, 0%, 0.6);
+    width: 100%;
+    height: 100%;
+    top: 0;
+  }
+  .menu {
+    float: right;
+    background: hsl(0, 0%, 98%);
+    width: 65%;
+    height: 100%;
+  }
+  .menu ul {
+    list-style: none;
+    display: inline-flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 40px 0px;
+    width: 100%;
+    max-height: 350px;
+    padding: 10px 20px;
+  }
+  .menu ul li {
+    width: 90px;
+    margin: 6px 0;
+    position: relative;
+  }
+  .menu ul li a {
+    text-decoration: none;
+    font-size: 15px;
+    color: hsl(0, 0%, 41%);
+  }
+  .menu ul li a:hover {
+    font-weight: 1000;
+    color: hsl(0, 0%, 8%);
+  }
+  .menu ul li:nth-child(1)::after,
+  .menu ul li:nth-child(2)::after {
+    position: absolute;
+    content: "";
+    border: 2px solid hsl(0, 0%, 41%);
+    width: 4px;
+    height: 4px;
+    border-width: 0 2px 2px 0;
+    top: 6px;
+    right: 7px;
+    transition: 0.5s ease;
+    transform: var(--Rotate);
+  }
+  .menu ul li:nth-child(1):hover:after,
+  .menu ul li:nth-child(2):hover:after {
+    border: 2px solid hsl(0, 0%, 8%);
+    border-width: 0 2px 2px 0;
+  }
+  .ham {
+    cursor: pointer;
+  }
+  .sponsors {
+    width: 100%;
+    height: max-content;
+  }
+  .attribution {
+    margin-top: 0px;
+    font-size: 14px;
+  }
+  .sponsors img {
+    width: 80px;
+  }
+  .nav-btn {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+  .nav-btn button:nth-child(2) {
+    width: 200px;
+    margin: 15px 0px;
+  }
+  .close {
+    padding-top: 10px;
+    margin: 0px 10px;
+    float: right;
+    cursor: pointer;
+  }
+  .dropDownMenu {
+    position: relative;
+    left: 0;
+    top: 0;
+    border: solid 1px hsl(0, 0%, 98%);
+    height: max-content;
+    padding: 15px 0;
+    border-radius: 10px;
+    box-shadow: none;
+    color: hsl(0, 0%, 41%);
+    font-size: 15px;
+    flex-direction: column;
+    display: none;
+  }
+  .two {
+    left: 0px;
+  }
+  .one div {
+    padding: 5px 0px;
+    padding-left: 20px;
+  }
+  .content {
+    height: max-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column-reverse;
+    margin: 0px 0px;
+  }
+  .content .text {
+    width: 100%;
+    height: 300px;
+    margin: 0px 0px;
+    display: flex;
+    text-align: center;
+  }
+  .content .text h1 {
+    font-size: 2em;
+    padding-right: 0px;
+  }
+  .content .text p {
+    margin: 15px 0;
+    padding-right: 0px;
+    padding: 0px 10px;
+  }
+  .content .text button {
+    width: 120px;
+    height: 45px;
+    margin: 8px 0px;
+  }
+  .content .image {
+    width: 100%;
+    height: 300px;
+    margin: 0px;
+    background-image: url(images/image-hero-mobile.png);
+    background-size: 100%;
+  }
+  .show {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+  }
+}

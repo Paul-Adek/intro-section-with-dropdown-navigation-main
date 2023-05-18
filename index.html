@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,700;1,500&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Intro section with dropdown navigation</title>
+</head>
+
+<body>
+  <div class="container">
+    <nav>
+      <div class="nav-menu">
+        <div class="logo"><img src="./images/logo.svg" alt="logo"></div>
+        <div>
+          <ul>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Company</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+        </div>
+        <div class="dropDownMenu one" id="dd-one">
+          <div><img src="images/icon-todo.svg" alt="icon"><span><a href="#">Todo List</a></span></div>
+          <div><img src="images/icon-calendar.svg" alt="icon"><span><a href="#">Calender</a></span></div>
+          <div><img src="images/icon-reminders.svg" alt="icon"><span><a href="#">Reminders</a></span></div>
+          <div><img src="images/icon-planning.svg" alt="icon"><span><a href="#">Planning</a></span></div>
+        </div>
+        <div class="dropDownMenu two" id="dd-two">
+          <div><span><a href="#">History</a></span></div>
+          <div><span><a href="#">Our Team</a></span></div>
+          <div><span><a href="#">Blog</a></span></div>
+        </div>
+      </div>
+      <div class="nav-btn">
+        <button>Login</button>
+        <button>Register</button>
+      </div>
+    </nav>
+    <div class="mobile-nav">
+      <div class="nav-bar">
+        <div class="logo"><img src="./images/logo.svg" alt="logo"></div>
+        <div class="ham" id="hamburger-icon"><img src="./images/icon-menu.svg" alt="icon"></div>
+      </div>
+      <div class="mobile-menu-content" id="mobile-menu">
+        <div class="menu">
+          <div class="close" id="close">
+            <img src="./images/icon-close-menu.svg" alt="close-menu">
+          </div>
+          <div>
+            <ul>
+              <li>
+                <a href="#">Features</a>
+                <div class="dropDownMenu one" id="mobile-one">
+                  <div><img src="images/icon-todo.svg" alt="icon"><span><a href="#">Todo List</a></span></div>
+                  <div><img src="images/icon-calendar.svg" alt="icon"><span><a href="#">Calender</a></span></div>
+                  <div><img src="images/icon-reminders.svg" alt="icon"><span><a href="#">Reminders</a></span></div>
+                  <div><img src="images/icon-planning.svg" alt="icon"><span><a href="#">Planning</a></span></div>
+                </div>
+              </li>
+              <li>
+                <a href="#">Company</a>
+                <div class="dropDownMenu two" id="mobile-two">
+                  <div><span><a href="#">History</a></span></div>
+                  <div><span><a href="#">Our Team</a></span></div>
+                  <div><span><a href="#">Blog</a></span></div>
+                </div>
+              </li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">About</a></li>
+            </ul>
+          </div>
+          <div class="nav-btn">
+            <button>Login</button>
+            <button>Register</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div class="text">
+        <div>
+          <h1>Make remote work</h1>
+
+          <p>Get your team in sync, no matter your location. Streamline processes,
+            create team rituals, and watch productivity soar.</p>
+          <button>Learn more</button>
+        </div>
+        <div class="sponsors">
+          <img src="images/client-databiz.svg" alt="image">
+          <img src="images/client-audiophile.svg" alt="image">
+          <img src="images/client-meet.svg" alt="image">
+          <img src="images/client-maker.svg" alt="image">
+        </div>
+      </div>
+      <div class="image"></div>
+    </div>
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="#">Paul Adekomi</a>.
+    </div>
+  </div>
+
+  <script>
+    const dropDown = document.querySelectorAll("a");
+    const links = document.querySelectorAll("li");
+    const dropDownMenuOne = document.getElementById("dd-one");
+    const dropDownMenuTwo = document.getElementById("dd-two");
+    const mobileDDOne = document.getElementById("mobile-one");
+    const mobileDDTwo = document.getElementById("mobile-two");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const mobileDropdown = document.getElementById("mobile-menu").querySelectorAll("a");
+    const mobileLinks = document.getElementById("mobile-menu").querySelectorAll("li");
+    const hamburgerIcon = document.getElementById("hamburger-icon");
+    const closeIcon = document.getElementById("close");
+    const mobileContent = document.querySelector(".mobile-menu-content").querySelectorAll("a");
+
+    dropDown.item(0).addEventListener("click", () => {
+      dropDownMenuOne.classList.toggle("active");
+      if (dropDownMenuOne.classList.contains("active")) {
+        links.item(0).style.setProperty("--Rotate", "rotate(225deg)")
+      } else {
+        links.item(0).style.setProperty("--Rotate", "rotate(44deg)")
+      }
+    });
+
+    dropDown.item(1).addEventListener("click", () => {
+      dropDownMenuTwo.classList.toggle("active");
+      if (dropDownMenuTwo.classList.contains("active")) {
+        links.item(1).style.setProperty("--Rotate", "rotate(225deg)")
+      } else {
+        links.item(1).style.setProperty("--Rotate", "rotate(44deg)")
+      }
+    });
+
+    // MOBILE
+    mobileDropdown.item(0).addEventListener("click", () => {
+      mobileDDOne.classList.toggle("show");
+      if (mobileDDOne.classList.contains("show")) {
+        mobileLinks.item(0).style.setProperty("--Rotate", "rotate(225deg)")
+      } else {
+        mobileLinks.item(0).style.setProperty("--Rotate", "rotate(44deg)")
+      }
+    })
+
+    mobileDropdown.item(5).addEventListener("click", () => {
+      mobileDDTwo.classList.toggle("show");
+      if (mobileDDTwo.classList.contains("show")) {
+        mobileLinks.item(1).style.setProperty("--Rotate", "rotate(225deg)")
+      } else {
+        mobileLinks.item(1).style.setProperty("--Rotate", "rotate(44deg)")
+      }
+    });
+
+    hamburgerIcon.addEventListener("click", () => {
+      mobileMenu.style.display = "block";
+    })
+    closeIcon.addEventListener("click", () => {
+      mobileMenu.style.display = "none";
+    })
+  </script>
+</body>
+
+</html>
